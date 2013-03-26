@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[french]{babel}
+\usepackage{microtype}
+\usepackage{bibleref-french}
+%\biblerefstyle{colombefull}
+\biblerefstyle{text}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{biblequote}
+\usepackage{pgffor}
+
+\newcommand\bversion{FreMartin}
+% Romans 3 32
+\newcommand\bverse[3]{%
+  \up{#3}\biblequote{#1}{#2:#3}{\bversion}%
+}
+% Romans 3 32
+\newcommand\bchapter[3]{
+  \section{\protect\bibleverse{#1}(#2:)}
+
+  \foreach \i in {1,...,#3}{%
+    \bverse{#1}{#2}{\i}%
+  }
+}
+
+\begin{document}
+
+\bchapter{Rom}{1}{32}
+
+\end{document}
+
