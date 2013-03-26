@@ -86,10 +86,10 @@
 % \section{Usage}
 %
 % This package provides various commands allowing you to import verses. The most simple one is
-% \texttt{versequote}:
+% \texttt{biblequote}:
 %
 % \begin{verbatim}
-%   \versequote{Jn}{3:16-17}{KJV}
+%   \biblequote{Jn}{3:16-17}{KJV}
 % \end{verbatim}
 %
 % You need to use the \texttt{-shell-escape} option in order for this to work.
@@ -106,9 +106,9 @@
 \ProvidesPackage{biblequote}
 %    \end{macrocode}
 %
-% \begin{macro}{\versequote}
+% \begin{macro}{\biblequote}
 %    \begin{macrocode}
-\newcommand\versequote[4][\jobname.out.diatheke]{%
+\newcommand\biblequote[4][\jobname.out.diatheke]{%
   \immediate\write18{diatheke -b "#4" --no-refs --no-mod-name --no-newlines -k "#2 #3" >> "#1"}
   \input{#1}
   \immediate\write18{rm #1}
