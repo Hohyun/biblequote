@@ -9,6 +9,7 @@
 \usepackage{libertineotf}
 \usepackage{biblequote}
 \usepackage{pgffor}
+\usepackage{ifthen}
 \usepackage{lettrine}
 \usepackage{nowidow}
 
@@ -17,7 +18,7 @@
 \newcommand\bversion{FreMartin}
 % Romans 3 32
 \newcommand\bverse[3]{%
-  \up{#3}\nolinebreak\biblequote{#1}{#2:#3}{\bversion}%
+  \ifthenelse{\equal{#3}{1}}{}{\up{#3}\nolinebreak}\biblequote{#1}{#2:#3}{\bversion}%
 }
 % Romans 3 32
 \newcommand\bchapter[3]{
