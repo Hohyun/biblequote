@@ -1,4 +1,4 @@
-\documentclass[paper=a5,pagesize=pdftex,11pt]{scrartcl}
+\documentclass[paper=a5,pagesize=pdftex,11pt,twocolumn]{scrartcl}
 \usepackage[french]{babel}
 \usepackage{microtype}
 \usepackage{bibleref-french}
@@ -6,16 +6,18 @@
 \biblerefstyle{text}
 \usepackage{fontspec}
 \usepackage{xunicode}
+\usepackage{libertineotf}
 \usepackage{biblequote}
 \usepackage{pgffor}
 \usepackage{lettrine}
+\usepackage{nowidow}
 
 \title{Épître aux Romains}
 
 \newcommand\bversion{FreMartin}
 % Romans 3 32
 \newcommand\bverse[3]{%
-  \up{#3}\biblequote{#1}{#2:#3}{\bversion}%
+  \up{#3}\nolinebreak\biblequote{#1}{#2:#3}{\bversion}%
 }
 % Romans 3 32
 \newcommand\bchapter[3]{
@@ -30,20 +32,36 @@
 \maketitle
 
 \bchapter{Rom}{1}{32}
+
 \bchapter{Rom}{2}{29}
+
 \bchapter{Rom}{3}{31}
+
 \bchapter{Rom}{4}{25}
+
 \bchapter{Rom}{5}{21}
+
 \bchapter{Rom}{6}{23}
+
 \bchapter{Rom}{7}{25}
-\bchapter{Rom}{8}{39}
+
+%\bchapter{Rom}{8}{39}
+\bchapter{Rom}{8}{38}
+
 \bchapter{Rom}{9}{33}
+
 \bchapter{Rom}{10}{21}
+
 \bchapter{Rom}{11}{36}
+
 \bchapter{Rom}{12}{21}
+
 \bchapter{Rom}{13}{14}
+
 \bchapter{Rom}{14}{23}
+
 \bchapter{Rom}{15}{33}
+
 \bchapter{Rom}{16}{27}
 
 \end{document}
