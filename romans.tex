@@ -19,10 +19,18 @@
 \setlength\marginparsep{8pt}
 \setlength\marginparwidth{8pt}
 
+% Only put a sep if not at the beginning of a line
+\newcommand{\vsep}{\unskip%
+  \cleaders\copy\vsepbox\hskip\wd\vsepbox%
+  \ignorespaces}
+\newsavebox\vsepbox
+\sbox\vsepbox{|}
+
 \newcommand\bversion{FreMartin}
 % Romans 3 32
 \newcommand\bverse[3]{%
-  \ifthenelse{\equal{#3}{1}}{}{\marginpar{\footnotesize #3}|~}\biblequote{#1}{#2:#3}{\bversion}%
+  \ifthenelse{\equal{#3}{1}}{}{\vsep\marginpar{\footnotesize #3}}
+  \biblequote{#1}{#2:#3}{\bversion}%
 }
 % Romans 3 32
 \newcommand\bchapter[3]{
