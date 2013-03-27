@@ -1,4 +1,5 @@
 \documentclass[paper=a5,pagesize=pdftex,11pt,twocolumn]{scrartcl}
+\usepackage[maxfloats=100]{morefloats}
 \usepackage[french]{babel}
 \usepackage{microtype}
 \usepackage{bibleref-french}
@@ -15,10 +16,13 @@
 
 \title{Épître aux Romains}
 
+\setlength\marginparsep{8pt}
+\setlength\marginparwidth{8pt}
+
 \newcommand\bversion{FreMartin}
 % Romans 3 32
 \newcommand\bverse[3]{%
-  \ifthenelse{\equal{#3}{1}}{}{\up{#3}\nolinebreak}\biblequote{#1}{#2:#3}{\bversion}%
+  \ifthenelse{\equal{#3}{1}}{}{\marginpar{\footnotesize #3}|~}\biblequote{#1}{#2:#3}{\bversion}%
 }
 % Romans 3 32
 \newcommand\bchapter[3]{
@@ -31,6 +35,7 @@
 \begin{document}
 
 \maketitle
+
 
 \bchapter{Rom}{1}{32}
 
