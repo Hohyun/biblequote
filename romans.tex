@@ -21,7 +21,9 @@
 \usepackage{pgffor}
 \usepackage{ifthen}
 \usepackage{lettrine}
-\usepackage{nowidow}
+\usepackage[all]{nowidow}
+
+\usepackage{trimspaces}
 
 \title{Épître aux Romains}
 
@@ -37,10 +39,12 @@
 
 \newcommand\bversion{FreMartin}
 % Romans 3 32
+\makeatletter
 \newcommand\bverse[3]{%
   \ifthenelse{\equal{#3}{1}}{}{\vsep\marginpar{\footnotesize #3}}
-  \biblequote{#1}{#2:#3}{\bversion}%
+  \trim@spaces{\biblequote{#1}{#2:#3}{\bversion}}%
 }
+\makeatother
 % Romans 3 32
 \newcommand\bchapter[3]{
   \lettrine{\liningnums{#2}}{}
