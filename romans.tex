@@ -1,14 +1,23 @@
 \documentclass[paper=a5,pagesize=pdftex,11pt,twocolumn]{scrartcl}
+% Required for marginpar verse references
 \usepackage[maxfloats=100]{morefloats}
+
 \usepackage[french]{babel}
 \usepackage{microtype}
-\usepackage{bibleref-french}
+
+% For references
+%\usepackage{bibleref-french}
 %\biblerefstyle{colombefull}
-\biblerefstyle{text}
+%\biblerefstyle{text}
+
+% fonts
 \usepackage{fontspec}
 \usepackage{xunicode}
-\usepackage{libertineotf}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{EB Garamond}
+
 \usepackage{biblequote}
+
 \usepackage{pgffor}
 \usepackage{ifthen}
 \usepackage{lettrine}
@@ -34,7 +43,7 @@
 }
 % Romans 3 32
 \newcommand\bchapter[3]{
-  \lettrine{#2}{}
+  \lettrine{\liningnums{#2}}{}
   \foreach \i in {1,...,#3}{%
     \bverse{#1}{#2}{\i}%
   }
