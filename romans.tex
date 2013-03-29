@@ -71,6 +71,8 @@
 % http://tex.stackexchange.com/questions/26392/titlesec-toptitlemarks-and-bottitlemarks-broken-when-section-not-called-explic
 % could also be interesting
 
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{subsection}}
 \newpagestyle{Biblestyle}{
   \setheadrule{.009pt}
   \sethead[\thepage][\chaptertitle]
