@@ -32,8 +32,8 @@ $(FILE): README $(SOURCEFILES) $(DOCFILES) $(PKGFILES)
 	latex $*.ins
 
 %.pdf: %.tex
-	pdflatex -shell-escape -interaction=batchmode $<
-	pdflatex -shell-escape -interaction=batchmode $<
+	lualatex -shell-escape -interaction=batchmode $<
+	lualatex -shell-escape -interaction=batchmode $<
 
 $(CONTRIBUTION).pdf: $(CONTRIBUTION).sty
 	pdflatex -interaction=batchmode $(CONTRIBUTION).dtx
