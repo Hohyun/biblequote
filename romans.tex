@@ -42,17 +42,22 @@
 \sbox\vsepbox{\vrule width 0.5px height 5px}
 
 \newcommand\bversion{FreMartin}
+
+\newcounter{bverse}
 % Romans 3 32
 \makeatletter
 \newcommand\bverse[3]{%
-  \setcounter{subsection}{#3}
+  \setcounter{bverse}{#3}
   \ifthenelse{\equal{#3}{1}}{}{\vsep\marginpar{\footnotesize #3}}
   \trim@spaces{\biblequote{#1}{#2:#3}{\bversion}}%
 }
 \makeatother
+
+\newcounter{bchapter}
 % Romans 3 32
 \newcommand\bchapter[3]{
-  \setcounter{section}{#2}
+  \setcounter{bchapter}{#2}
+  \setcounter{bverse}{0}
   \lettrine{\liningnums{#2}}{}
   \foreach \i in {1,...,#3}{%
     \bverse{#1}{#2}{\i}%
@@ -71,15 +76,15 @@
 % http://tex.stackexchange.com/questions/26392/titlesec-toptitlemarks-and-bottitlemarks-broken-when-section-not-called-explic
 % could also be interesting
 
-\renewcommand\thesection{\arabic{section}}
-\renewcommand\thesubsection{\arabic{subsection}}
+\renewcommand\thebchapter{\arabic{bchapter}}
+\renewcommand\thebverse{\arabic{bverse}}
 \newpagestyle{Biblestyle}{
   \setheadrule{.009pt}
   \sethead[\thepage][\chaptertitle]
-    [\toptitlemarks\thesection:\toptitlemarks\thesubsection---%
-      \bottitlemarks\thesection:\bottitlemarks\thesubsection]%
-    {\toptitlemarks\thesection:\toptitlemarks\thesubsection---%
-      \bottitlemarks\thesection:\bottitlemarks\thesubsection}{\chaptertitle}{\thepage}
+    [\toptitlemarks\thebchapter:\toptitlemarks\thebverse---%
+      \bottitlemarks\thebchapter:\bottitlemarks\thebverse]%
+    {\toptitlemarks\thebchapter:\toptitlemarks\thebverse---%
+      \bottitlemarks\thebchapter:\bottitlemarks\thebverse}{\chaptertitle}{\thepage}
 }
 \pagestyle{Biblestyle}
 
