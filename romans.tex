@@ -56,10 +56,20 @@
   }
 }
 
+\usepackage{titlesec}
+\newfontfamily\chapheadfont{EB Garamond}
+\newcommand{\chapheadstyle}{\centering\chapheadfont\Huge\textsc}
+\titleformat{\chapter}[display]
+  {}
+  {}{0pt}
+  {\chapheadstyle}
+
 \begin{document}
 
 \maketitle
 \balance
+
+\chapter{Épître aux Romains}
 
 \bchapter{Rom}{1}{32}
 
