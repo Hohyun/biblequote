@@ -3,7 +3,8 @@
 \usepackage[maxfloats=100]{morefloats}
 
 \usepackage[french]{babel}
-\usepackage{microtype}
+\usepackage[protrusion=true,final]{microtype}
+\usepackage[newcommands]{ragged2e}
 
 % For references
 %\usepackage{bibleref-french}
@@ -56,6 +57,7 @@
   }
 }
 
+% Adjust headings
 \usepackage{titlesec}
 \newfontfamily\chapheadfont{EB Garamond}
 \newcommand{\chapheadstyle}{\centering\chapheadfont\Huge\textsc}
@@ -63,6 +65,7 @@
   {}
   {}{0pt}
   {\chapheadstyle}
+
 
 \begin{document}
 
