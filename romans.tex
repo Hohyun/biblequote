@@ -7,8 +7,8 @@
 \usepackage[newcommands]{ragged2e}
 
 % For references
-%\usepackage{bibleref-french}
-%\biblerefstyle{colombefull}
+\usepackage{bibleref-french}
+\biblerefstyle{colombefull}
 %\biblerefstyle{text}
 
 % fonts
@@ -47,7 +47,7 @@
 % Romans 3 32
 \makeatletter
 \newcommand\bverse[3]{%
-  \markright{#2:#3}
+  \markright{\protect\bibleverse{#1}(#2:#3)}
   \ifthenelse{\equal{#3}{1}}{}{\vsep\marginpar{\footnotesize #3}}
   \trim@spaces{\biblequote{#1}{#2:#3}{\bversion}}%
 }
@@ -73,13 +73,12 @@
 % http://tex.stackexchange.com/questions/26392/titlesec-toptitlemarks-and-bottitlemarks-broken-when-section-not-called-explic
 % could also be interesting
 
+\newcommand*{\cadr}{\nobreak\,\nobreak\mbox{---}\nobreak\,\nobreak}
+
 \newpagestyle{Biblestyle}{
   \setheadrule{.009pt}
-  \sethead[\thepage][\chaptertitle]
-    [\toptitlemarks---%
-      \bottitlemarks]%
-    {\toptitlemarks---%
-      \bottitlemarks}{\chaptertitle}{\thepage}
+  \sethead[\thepage][\textsc{\toptitlemarks\cadr\bottitlemarks}]
+  []{}{\textsc{\toptitlemarks\cadr\bottitlemarks}}{\thepage}
 }
 \pagestyle{Biblestyle}
 
