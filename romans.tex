@@ -45,9 +45,11 @@
 \newcommand\bversion{FreMartin}
 
 % Romans 3 32
+\def\bref{}
 \makeatletter
 \newcommand\bverse[3]{%
-  \markright{\protect\bibleverse{#1}(#2:#3)}
+  \def\bref{\protect\bibleverse{#1}(#2:#3)}
+  \extramark{bref}
   \ifthenelse{\equal{#3}{1}}{}{\vsep\marginpar{\footnotesize #3}}
   \trim@spaces{\biblequote{#1}{#2:#3}{\bversion}}%
 }
@@ -62,23 +64,24 @@
 }
 
 % Adjust headings
-\usepackage[pagestyles]{titlesec}
+\usepackage[extramarks]{titleps}
 \newfontfamily\chapheadfont{EB Garamond}
 \newcommand{\chapheadstyle}{\centering\chapheadfont\Huge\textsc}
-\titleformat{\chapter}[display]
-  {}
-  {}{0pt}
-  {\chapheadstyle}
+%\titleformat{\chapter}[display]
+%  {}
+%  {}{0pt}
+%  {\chapheadstyle}
 
 % http://tex.stackexchange.com/questions/26392/titlesec-toptitlemarks-and-bottitlemarks-broken-when-section-not-called-explic
 % could also be interesting
 
 \newcommand*{\cadr}{\nobreak\,\nobreak\mbox{---}\nobreak\,\nobreak}
-
+\newmarkset{bref}
+\newextramark{bref}{\bref}
 \newpagestyle{Biblestyle}{
   \setheadrule{.009pt}
-  \sethead[\thepage][\textsc{\toptitlemarks\cadr\bottitlemarks}]
-  []{}{\textsc{\toptitlemarks\cadr\bottitlemarks}}{\thepage}
+  \sethead[\thepage][\textsc{\topextramarks{bref}\bref\cadr\botextramarks{bref}\bref}]
+  []{}{\textsc{\topextramarks{bref}\bref\cadr\botextramarks{bref}\bref}}{\thepage}
 }
 \pagestyle{Biblestyle}
 
