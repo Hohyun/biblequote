@@ -39,8 +39,8 @@
   \cleaders\copy\vsepbox\hskip\wd\vsepbox%
   \ignorespaces}
 \newsavebox\vsepbox
-%\sbox\vsepbox{\vrule width 0.5px height 5px}
-\sbox\vsepbox{|}
+\sbox\vsepbox{\vrule width 0.5px height 5px}
+%\sbox\vsepbox{|}
 
 \newcommand\bversion{FreMartin}
 
@@ -48,9 +48,9 @@
 \def\bref{}
 \makeatletter
 \newcommand\bverse[3]{%
+  \ifthenelse{\equal{#3}{1}}{}{\vsep\marginpar{\footnotesize #3}}
   \def\bref{\protect\bibleverse{#1}(#2:#3)}
   \extramark{bref}
-  \ifthenelse{\equal{#3}{1}}{}{\vsep\marginpar{\footnotesize #3}}
   \trim@spaces{\biblequote{#1}{#2:#3}{\bversion}}%
 }
 \makeatother
