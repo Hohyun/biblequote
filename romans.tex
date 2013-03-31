@@ -64,13 +64,14 @@
 }
 
 % Adjust headings
+\usepackage{titlesec}
 \usepackage[extramarks]{titleps}
 \newfontfamily\chapheadfont{EB Garamond}
 \newcommand{\chapheadstyle}{\centering\chapheadfont\Huge\textsc}
-%\titleformat{\chapter}[display]
-%  {}
-%  {}{0pt}
-%  {\chapheadstyle}
+\titleformat{\chapter}[display]
+  {}
+  {}{0pt}
+  {\chapheadstyle}
 
 % http://tex.stackexchange.com/questions/26392/titlesec-toptitlemarks-and-bottitlemarks-broken-when-section-not-called-explic
 % could also be interesting
